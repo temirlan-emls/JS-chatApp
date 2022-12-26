@@ -1,3 +1,5 @@
+import { intervalsStore } from "./_intervalStore.js";
+
 const sendMessageInit = async function () {
     const currentUser = window.location.href.substring(40, 64);
     const messageField = document.querySelector(".chatMessages");
@@ -15,6 +17,7 @@ const sendMessageInit = async function () {
         messageButton.disabled = true;
     }
     messageButton.addEventListener("click", async () => {
+        intervalsStore.forEach(clearInterval);
         let messageText = messageInput.value;
 
         if (messageText.length === 0) {
@@ -33,6 +36,29 @@ const sendMessageInit = async function () {
             );
         }
         messageInput.value = "";
+    });
+    messageInput.addEventListener("keydown", async (e) => {
+        if (e.key === "Enter") {
+            intervalsStore.forEach(clearInterval);
+            let messageText = messageInput.value;
+
+            if (messageText.length === 0) {
+                messageInput.placeholder = "Enter something!!!";
+            } else {
+                messageInput.placeholder = "";
+                const params = {
+                    login: currentLogin,
+                    text: messageText,
+                    chatId: window.location.href.substring(72, 96),
+                };
+                await sendMessage(
+                    params,
+                    currentLogin,
+                    window.location.href.substring(72, 96)
+                );
+            }
+            messageInput.value = "";
+        }
     });
 };
 
@@ -60,38 +86,46 @@ const sendMessage = async function (body, currentLogin, currentChat) {
 
 const openChatBlock2 = async function (chatID, currentLogin) {
     const fullChatUrl = "http://195.49.210.34/chat/" + chatID + "/";
-    await fetch(fullChatUrl, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json; charset=utf-8",
-        },
-    })
-        .then(async (response) => {
-            let jsonResponse = await response.json();
-            if (jsonResponse.info.status === "Error") {
-                const error = jsonResponse.payload || response.status;
-                return Promise.reject(error);
-            }
-            const messageField = document.querySelector(".chatMessages");
-            messageField.innerHTML = "";
-            jsonResponse.payload.forEach((chat) => {
-                chat.history.forEach((message) => {
-                    const messageText = document.createElement("p");
-                    messageText.innerText = message.text;
-                    const messageWrapper = document.createElement("div");
-                    if (message.from === currentLogin) {
-                        messageWrapper.classList.add("myMessage");
-                    } else if (message.from !== currentLogin) {
-                        messageWrapper.classList.add("otherMessage");
-                    }
-                    messageWrapper.appendChild(messageText);
-                    messageField.appendChild(messageWrapper);
-                });
-            });
+    let chatInterval = setInterval(async () => {
+        await fetch(fullChatUrl, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+            },
         })
-        .catch((error) => {
-            console.error("There was an error!", error);
-        });
+            .then(async (response) => {
+                let jsonResponse = await response.json();
+                if (jsonResponse.info.status === "Error") {
+                    const error = jsonResponse.payload || response.status;
+                    return Promise.reject(error);
+                }
+                console.log(jsonResponse.payload[0].label);
+                const messageField = document.querySelector(".chatMessages");
+                messageField.innerHTML = "";
+                jsonResponse.payload.forEach((chat) => {
+                    chat.history
+                        .slice()
+                        .reverse()
+                        .forEach((message) => {
+                            const messageText = document.createElement("p");
+                            messageText.innerText = message.text;
+                            const messageWrapper =
+                                document.createElement("div");
+                            if (message.from === currentLogin) {
+                                messageWrapper.classList.add("myMessage");
+                            } else if (message.from !== currentLogin) {
+                                messageWrapper.classList.add("otherMessage");
+                            }
+                            messageWrapper.appendChild(messageText);
+                            messageField.appendChild(messageWrapper);
+                        });
+                });
+            })
+            .catch((error) => {
+                console.error("There was an error!", error);
+            });
+    }, 1000);
+    intervalsStore.push(chatInterval);
 };
 
 const getCurrentLogin = async function (currentUser) {
