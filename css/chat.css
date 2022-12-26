@@ -1,0 +1,414 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    /* box-shadow: inset 0px 0px 0px 1px #f00; */
+    font-family: "Source Sans Pro", sans-serif;
+    scrollbar-width: auto;
+    scrollbar-color: #545454 #000000;
+}
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 9px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #545454;
+    border-radius: 0px;
+    border: 3px solid #000000;
+}
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+.wrapper {
+    display: flex;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+}
+.right {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    overflow: auto;
+}
+
+.toggleUserChat {
+    height: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.users {
+    width: 40%;
+    height: 90%;
+    background-color: rgb(152, 0, 124);
+    font-weight: 900;
+    border-radius: 0.5em;
+}
+.chats {
+    width: 40%;
+    height: 90%;
+    background-color: rgb(152, 0, 124);
+    font-weight: 900;
+    border-radius: 0.5em;
+}
+.users:hover {
+    background-color: rgb(49, 0, 40);
+    color: rgb(207, 0, 169);
+}
+.chats:hover {
+    background-color: rgb(49, 0, 40);
+    color: rgb(207, 0, 169);
+}
+.active {
+    background-color: rgb(49, 0, 40);
+    color: rgb(207, 0, 169);
+}
+
+.listChatUser {
+    height: 85%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.listChatUser h3 {
+    margin-bottom: 0.5em;
+    color: rgb(152, 0, 124);
+    border-radius: 0.5em;
+}
+
+.user {
+    width: 90%;
+    min-height: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    background-color: rgb(152, 0, 124);
+    border-radius: 0.5em;
+    margin: 0.2em 0 0 0;
+}
+.user button {
+    margin-top: 0.5em;
+    padding: 0.5em 1em;
+    background-color: rgb(152, 0, 124);
+    font-weight: 900;
+}
+.user button:hover {
+    background-color: rgb(49, 0, 40);
+    color: rgb(207, 0, 169);
+}
+.user:hover {
+    background-color: rgb(37, 37, 37);
+    color: rgb(177, 0, 145);
+}
+.chat {
+    width: 90%;
+    min-height: 6rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    background-color: rgb(23, 23, 23);
+    border-radius: 0.5em;
+    margin: 0.2em 0 0 0;
+}
+.chat:hover {
+    background-color: rgb(37, 37, 37);
+    color: rgb(177, 0, 145);
+}
+.chatWrapper {
+    width: 80%;
+    background-color: rgb(23, 23, 23);
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.myMessage {
+    width: 100%;
+    text-align: end;
+}
+.myMessage p {
+    background-color: rgb(125, 0, 102);
+    color: white;
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    margin: 0 0.5em 0.5em 0;
+}
+.otherMessage {
+    width: 100%;
+    text-align: start;
+}
+.otherMessage p {
+    background-color: rgb(56, 56, 56);
+    color: white;
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    margin: 0 0 0.5em 0.5em;
+}
+.chatInput {
+    height: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chatInput input {
+    height: 100%;
+    border-radius: 1em;
+    width: 85%;
+    background-color: rgb(77, 0, 63);
+    padding: 0 0 0 1em;
+    color: white;
+}
+.chatInput input::placeholder {
+    color: red;
+    font-size: 900;
+}
+.chatInput button {
+    margin-left: 1em;
+    width: 6%;
+    height: 100%;
+    background-color: rgb(152, 0, 124);
+    border-radius: 1em;
+    font-weight: 900;
+    color: white;
+}
+.chatInput button:hover {
+    background-color: rgb(37, 37, 37);
+    color: rgb(177, 0, 145);
+}
+.hidden {
+    display: none;
+}
+
+.topButtons {
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.profileButton {
+    background-color: rgb(152, 0, 124);
+    font-size: 1rem;
+    font-weight: 900;
+    width: 50%;
+    height: 80%;
+    border-radius: 0.3em;
+}
+.profileButton:hover {
+    background-color: rgb(49, 0, 40);
+    color: rgb(207, 0, 169);
+}
+.startChatButton {
+    background-color: rgb(44, 44, 44);
+    color: rgb(207, 0, 169);
+    font-size: 1rem;
+    font-weight: 900;
+    width: 30%;
+    height: 80%;
+    border-radius: 0.3em;
+    word-break: break-all;
+}
+.startChatButton:hover {
+    background-color: rgb(100, 100, 100);
+    color: rgb(0, 0, 0);
+}
+.profileModalBack {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.7);
+}
+.profileModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    background-color: rgb(134, 134, 134);
+    border-radius: 1em;
+    border: 5px solid rgb(115, 0, 94);
+    background-color: rgb(17, 17, 17);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profileModal button {
+    width: 20%;
+    min-height: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    background-color: rgb(177, 0, 145);
+    border-radius: 0.5em;
+    margin: 0.2em 0 0 0;
+    margin-bottom: 1em;
+}
+.profileModal button:hover {
+    background-color: rgb(37, 37, 37);
+    color: rgb(177, 0, 145);
+}
+.profileModal p {
+    margin-top: 1em;
+    font-weight: 800;
+    color: rgb(177, 0, 145);
+}
+.profileInfo span {
+    color: white;
+}
+
+.startChatBack {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.7);
+}
+.startChatModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 50%;
+    height: 50%;
+    overflow: auto;
+    background-color: rgb(134, 134, 134);
+    border-radius: 1em;
+    border: 5px solid rgb(115, 0, 94);
+    background-color: rgb(17, 17, 17);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.startChatInfo {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.startChatModal button {
+    width: 20%;
+    min-height: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    background-color: rgb(177, 0, 145);
+    border-radius: 0.5em;
+    margin: 0.2em 0 0 0;
+    margin-bottom: 1em;
+}
+.startChatModal button:hover {
+    background-color: rgb(37, 37, 37);
+    color: rgb(177, 0, 145);
+}
+.chatMessages {
+    width: 95%;
+    min-height: 90%;
+    border-radius: 1em;
+    margin-bottom: 0.6em;
+    border: 3px rgb(49, 0, 40) solid;
+    background-color: rgb(17, 17, 17);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    row-gap: 0.8em;
+    overflow: auto;
+}
+.chatMessages button {
+    width: 20%;
+    min-height: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    background-color: rgb(177, 0, 145);
+    border-radius: 0.5em;
+    margin: 0.2em 0 0 0;
+    margin-bottom: 1em;
+}
+.chatMessages button:hover {
+    background-color: rgb(37, 37, 37);
+    color: rgb(177, 0, 145);
+}
+
+.chatSettings {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatSettings input {
+    margin-bottom: 3em;
+    width: 100%;
+    border-radius: 0.5em;
+    background-color: rgb(125, 0, 102);
+    padding: 0 0 0 1em;
+    color: white;
+}
+.chatMembers {
+    width: 30%;
+    height: 80%;
+    background-color: rgb(177, 0, 145);
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+.chatMembersUser {
+    width: 95%;
+    min-height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(23, 23, 23);
+    border-radius: 0.5em;
+    margin-top: 0.4em;
+    user-select: none;
+}
+.chatMembersUser:hover {
+    background-color: rgb(49, 49, 49);
+}
+.activeChatMember {
+    background-color: rgb(64, 0, 52);
+    color: rgb(255, 0, 208);
+}
+.startChatError {
+    font-weight: 900;
+    color: red;
+    text-align: center;
+}

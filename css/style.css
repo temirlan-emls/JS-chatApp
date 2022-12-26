@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    /* box-shadow: inset 0px 0px 0px 1px #f00; */
+    font-family: "Source Sans Pro", sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+}
+.form {
+    width: 50rem;
+    min-height: 35rem;
+    border-radius: 1rem;
+    background-color: rgb(23, 23, 23);
+}
+.regBlock {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.regBlock input {
+    margin: 1rem;
+    padding: 1rem;
+    width: 25rem;
+    border-radius: 1rem;
+    z-index: 1;
+}
+.regBlock h2 {
+    color: white;
+}
+.authBlock {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.authBlock input {
+    margin: 1rem;
+    padding: 1rem;
+    width: 25rem;
+    border-radius: 1rem;
+    z-index: 1;
+}
+.authBlock h2 {
+    color: white;
+}
+#submitAuth {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: rgb(89, 27, 100);
+    color: white;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    z-index: 1;
+}
+#submitAuth:hover {
+    background-color: rgb(56, 16, 63);
+}
+#submitReg {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: rgb(89, 27, 100);
+    color: white;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    z-index: 1;
+}
+#submitReg:hover {
+    background-color: rgb(56, 16, 63);
+}
+.bgText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 5rem;
+    color: rgb(119, 45, 205);
+}
+.res {
+    margin-top: 1rem;
+}
+.res h2 {
+    text-align: center;
+}
+.hidden {
+    display: none;
+}
+.toggleBlocks {
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-around;
+    gap: 3em;
+}
+
+.toggleBlocks h2 {
+    background-color: rgb(37, 37, 37);
+    padding: 0.5em 1.5em;
+
+    color: white;
+    border-radius: 0.2rem;
+}
+.toggleBlocks h2:hover {
+    background-color: rgb(56, 16, 63);
+    color: white;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.error {
+    color: rgb(145, 0, 0);
+}
+.success {
+    color: rgb(0, 255, 68);
+}

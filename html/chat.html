@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/chat.css" />
+    </head>
+    <body>
+        <div class="profileModalBack hidden">
+            <div class="profileModal">
+                <p>PROFILE</p>
+                <div class="profileInfo"></div>
+                <button>Close</button>
+            </div>
+        </div>
+        <div class="startChatBack hidden">
+            <div class="startChatModal">
+                <div class="startChatInfo">
+                    <div class="chatMembers"></div>
+                    <div class="chatSettings">
+                        <label for="chatLabel"> Chat label*</label>
+                        <input type="text" id="chatLabel" / required>
+                        <label for="chatDescr"> Chat description</label>
+                        <input type="text" id="chatDescr" />
+                        <div class="startChatError"></div>
+                    </div>
+                </div>
+
+                <button>Start Chat!</button>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="right">
+                <div class="topButtons">
+                    <button class="profileButton">PROFILE</button>
+                    <button class="startChatButton">Start Chat!</button>
+                </div>
+                <div class="toggleUserChat">
+                    <button class="users active">USERS</button>
+                    <button class="chats">CHATS</button>
+                </div>
+
+                <div class="listChatUser"></div>
+            </div>
+
+            <div class="chatWrapper">
+                <div class="chatMessages"></div>
+                <div class="chatInput">
+                    <input type="text" /><button>Send</button>
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="../js/chatJs/toggleUserChat.js"></script>
+        <script type="module" src="../js/chatJs/openChat.js"></script>
+        <script type="module" src="../js/chatJs/profileModal.js"></script>
+        <script type="module" src="../js/chatJs/startChat.js"></script>
+        <script type="module" src="../js/chatJs/sendMessage.js"></script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <div class="form">
+            <div class="toggleBlocks">
+                <h2>Registration</h2>
+                <h2>Auth</h2>
+            </div>
+            <div class="regBlock ">
+                <h2>Registration</h2>
+                <input type="text" id="login" placeholder="Логин" />
+                <input type="password" id="password" placeholder="Пароль" />
+                <input
+                    type="password"
+                    id="passwordTry"
+                    placeholder=" Повторите  пароль"
+                />
+                <div id="submitReg">Register</div>
+                <div class="resReg res">
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="authBlock hidden">
+                <h2>Auth</h2>
+                <input type="text" id="authLogin" placeholder="Логин" />
+                <input type="password" id="authPassword" placeholder="Пароль" />
+                <div id="submitAuth">Login</div>
+                <div class="resAuth res">
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="./js/loginRegJs/register.js"></script>
+        <script type="module" src="./js/loginRegJs/login.js"></script>
+        <script type="module" src="./js/loginRegJs/toggleBlocks.js"></script>
+    </body>
+</html>
